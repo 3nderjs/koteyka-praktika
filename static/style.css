@@ -1,0 +1,559 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #FAF3E0;
+    color: #212121;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Background paw print pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #FFCA28 2px, transparent 3px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Pacifico', cursive;
+    color: #2E7D32;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+}
+
+p, a, input, button, select {
+    font-size: 1.1rem;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 4px solid #FFCA28;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+header p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* General Section Styles */
+section {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Featured Rooms */
+#featured-rooms {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+#featured-rooms .room-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: #FFF8E1;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#featured-rooms .room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#featured-rooms button {
+    background-color: #D81B60;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#featured-rooms button:hover {
+    background-color: #AD1457;
+    transform: scale(1.05);
+}
+
+/* Reviews */
+#reviews {
+    background-color: #FFCA28;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+#reviews p {
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+}
+
+/* Contacts */
+#contacts {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+#contacts a {
+    color: #2E7D32;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.2s;
+}
+
+#contacts a:hover {
+    color: #D81B60;
+    transform: scale(1.1);
+}
+
+/* Booking Modal */
+#booking-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#booking-form {
+    background-color: #FFF8E1;
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    animation: slideUp 0.3s ease-in-out;
+}
+
+#booking-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2E7D32;
+}
+
+#booking-form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #FFCA28;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#booking-form input:focus {
+    border-color: #D81B60;
+    outline: none;
+}
+
+#booking-form button {
+    background-color: #D81B60;
+    color: #FFFFFF;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#booking-form button:hover {
+    background-color: #AD1457;
+    transform: scale(1.05);
+}
+
+/* Catalog Page */
+#catalog {
+    padding: 3rem 1rem;
+}
+
+#catalog form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: #FFF8E1;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#catalog select, #catalog input[type="number"] {
+    padding: 0.75rem;
+    border: 2px solid #FFCA28;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#catalog button {
+    background-color: #2E7D32;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#catalog button:hover {
+    background-color: #1B5E20;
+    transform: scale(1.05);
+}
+
+#catalog a {
+    color: #D81B60;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#catalog a:hover {
+    text-decoration: underline;
+    color: #AD1457;
+}
+
+#catalog .room-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#catalog .room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Error Page */
+.error-page {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #FFF8E1;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.error-page h2 {
+    color: #D81B60;
+}
+
+.error-page ul {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.error-page li {
+    color: #212121;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.error-page a {
+    color: #2E7D32;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.error-page a:hover {
+    color: #D81B60;
+}
+
+/* Admin Login */
+#admin-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #FAF3E0;
+}
+
+#admin-login form {
+    background-color: #FFF8E1;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 450px;
+}
+
+#admin-login label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2E7D32;
+}
+
+#admin-login input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #FFCA28;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#admin-login input:focus {
+    border-color: #D81B60;
+    outline: none;
+}
+
+#admin-login button {
+    background-color: #2E7D32;
+    color: #FFFFFF;
+    border: none;
+    padding: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#admin-login button:hover {
+    background-color: #1B5E20;
+    transform: scale(1.05);
+}
+
+/* Admin Panel */
+#admin-panel {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#admin-panel form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: #FFF8E1;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+#admin-panel select {
+    padding: 0.75rem;
+    border: 2px solid #FFCA28;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#admin-panel button {
+    background-color: #2E7D32;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#admin-panel button:hover {
+    background-color: #1B5E20;
+    transform: scale(1.05);
+}
+
+#admin-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#admin-panel th, #admin-panel td {
+    padding: 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+#admin-panel th {
+    background-color: #2E7D32;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+#admin-panel button.approve {
+    background-color: #FFCA28;
+    color: #212121;
+    border-radius: 20px;
+}
+
+#admin-panel button.delete {
+    background-color: #D81B60;
+    color: #FFFFFF;
+    border-radius: 20px;
+}
+
+#admin-panel button.approve:hover {
+    background-color: #FFB300;
+    transform: scale(1.05);
+}
+
+#admin-panel button.delete:hover {
+    background-color: #AD1457;
+    transform: scale(1.05);
+}
+
+#admin-panel a {
+    color: #D81B60;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#admin-panel a:hover {
+    color: #AD1457;
+}
+
+/* Flash Messages */
+.flashes {
+    list-style: none;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 1200px;
+}
+
+.flashes li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.flashes .success {
+    background-color: #C8E6C9;
+    color: #2E7D32;
+}
+
+.flashes .error {
+    background-color: #FFCDD2;
+    color: #D81B60;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 2rem 0.5rem;
+    }
+
+    #catalog form {
+        grid-template-columns: 1fr;
+    }
+
+    #booking-form {
+        padding: 1.5rem;
+    }
+
+    #admin-panel table {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    #booking-form input, #admin-login input {
+        font-size: 0.9rem;
+    }
+
+    #admin-panel th, #admin-panel td {
+        padding: 0.8rem;
+    }
+
+    #admin-panel button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap');

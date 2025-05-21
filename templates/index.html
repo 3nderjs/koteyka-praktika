@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ hotel.name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <header>
+        <h1>{{ hotel.name }}</h1>
+        <p>{{ hotel.slogan }}</p>
+    </header>
+
+    <section id="featured-rooms">
+        <h2>Рекомендуемые номера</h2>
+        {% for room in featured_rooms %}
+            <div class="room-card">
+                <h3>{{ room.name }}</h3>
+                <p>{{ room.description }}</p>
+                <p>Цена: {{ "{:.2f}".format(room.price) }} руб./ночь</p>
+                <button onclick="openBookingModal({{ room.id }})">Забронировать</button>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section id="reviews">
+        <h2>Отзывы</h2>
+        {% for review in reviews %}
+            <p>{{ review.content }}</p>
+        {% endfor %}
+    </section>
+
+    <section id="contacts">
+        <h2>Контакты</h2>
+        <p>Адрес: {{ hotel.address }}</p>
+        <p>Режим работы: {{ hotel.working_hours }}</p>
+        <p>Телефон: {{ hotel.phone }}</p>
+        <p>Email: {{ hotel.email }}</p>
+        {% for platform, url in hotel.social_links.items() %}
+            <a href="{{ url }}">{{ platform }}</a>
+        {% endfor %}
+    </section>
+
+    <div id="booking-modal" style="display:none;">
+        <form id="booking-form" action="{{ url_for('book') }}" method="POST">
+            <input type="hidden" name="room_id" id="room_id">
+            <label>Ваше имя:</label>
+            <input type="text" name="guest_name" required>
+            <label>Имя питомца:</label>
+            <input type="text" name="pet_name" required>
+            <label>Телефон (+7(XXX)XXX-XX-XX):</label>
+            <input type="text" name="phone" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Дата заезда (ДД:ММ:ГГГГ):</label>
+            <input type="text" name="check_in" placeholder="ДД:ММ:ГГГГ" required>
+            <label>Дата выезда (ДД:ММ:ГГГГ):</label>
+            <input type="text" name="check_out" placeholder="ДД:ММ:ГГГГ" required>
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </div>
+
+    <script>
+        function openBookingModal(roomId) {
+            document.getElementById('room_id').value = roomId;
+            document.getElementById('booking-modal').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
